@@ -44,19 +44,18 @@ class _GuestListPageState extends State<GuestListPage> with SingleTickerProvider
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Flexible(
                       child: Container(
                         width: 400,
-                        padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
+                        padding: const EdgeInsets.fromLTRB(32, 0, 12, 0),
                         child: TextField(
                           controller: _textEditingController,
                           decoration: const InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
                             hintText: 'Search your guest name', 
-                            prefixIcon: Icon(Icons.search, color: Colors.grey,),
+                            prefixIcon: Icon(Icons.search, size: 32, color: Colors.grey,),
                           ),
                           onChanged: (value) {
                             _runFilter(value);
@@ -68,11 +67,11 @@ class _GuestListPageState extends State<GuestListPage> with SingleTickerProvider
                       child: Container(
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
-                          color: Colors.yellow,
+                          color: Colors.orangeAccent,
                           borderRadius: BorderRadius.all(Radius.circular(4.0)),
                         ),
-                        padding: const EdgeInsets.all(8),
-                        child: const Icon(FontAwesomeIcons.bars)
+                        padding: const EdgeInsets.all(12),
+                        child: const Icon(FontAwesomeIcons.alignCenter, color: Colors.white,)
                       ),
                       onTap: () {
                         _runFilter(_textEditingController.text);

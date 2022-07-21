@@ -68,7 +68,7 @@ Widget GuestButton(String name, String image, String origin, [bool arrow = true]
           width: 64,
           height: 64,
           padding: const EdgeInsets.all(8),
-          child: const Icon(FontAwesomeIcons.arrowRight, color: Colors.lightBlue,),
+          child: const Icon(Icons.keyboard_arrow_right, color: Colors.lightBlue,),
         )
         : Container(),
       ],

@@ -96,12 +96,15 @@ class _GuestDetailPageState extends State<GuestDetailPage> with TickerProviderSt
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text('Email', style: BukitVistaTheme.body1.copyWith(color: Colors.grey)),
+                                SizedBox(height: 4,),
                                 Text(state.guestDetail.email, style: BukitVistaTheme.body1),
                                 SizedBox(height: 16,),
                                 Text('Phone Number', style: BukitVistaTheme.body1.copyWith(color: Colors.grey)),
+                                SizedBox(height: 4,),
                                 Text(state.guestDetail.phone, style: BukitVistaTheme.body1),
                                 SizedBox(height: 16,),
                                 Text('Guest Origin', style: BukitVistaTheme.body1.copyWith(color: Colors.grey)),
+                                SizedBox(height: 4,),
                                 Text(state.guestDetail.origin, style: BukitVistaTheme.body1),
                             ])
                           ),
