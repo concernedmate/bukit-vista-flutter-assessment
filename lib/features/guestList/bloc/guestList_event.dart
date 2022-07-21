@@ -6,3 +6,12 @@ abstract class GuestListEvent extends Equatable {
 }
 
 class GuestListFetched extends GuestListEvent {}
+
+class GuestListFiltered extends GuestListEvent {
+  GuestListFiltered(this.filter);
+  
+  final String filter;
+
+  @override
+  List<Object> get props => [filter];
+}

@@ -40,7 +40,7 @@ class _GuestListPageState extends State<GuestListPage> {
                             hintText: 'Search your guest name', 
                             prefixIcon: Icon(Icons.search, color: Colors.grey,),
                           ),
-                          onSubmitted: (value) {
+                          onChanged: (value) {
                             _runFilter(value);
                           },
                         ),
@@ -85,7 +85,7 @@ class _GuestListPageState extends State<GuestListPage> {
                     )
                   );
               case GuestListStatus.success:
-                if (state.guests.isEmpty) {
+                if (state.guestsVisible.isEmpty) {
                   return RefreshIndicator(
                     onRefresh: _onRefresh,
                     child: ListView(
@@ -101,12 +101,12 @@ class _GuestListPageState extends State<GuestListPage> {
                     child: ListView.builder(
                       itemBuilder: (BuildContext context, int index){
                         return GuestButton(
-                          state.guests[index].name,
-                          state.guests[index].picture,
-                          state.guests[index].origin,
+                          state.guestsVisible[index].name,
+                          state.guestsVisible[index].picture,
+                          state.guestsVisible[index].origin,
                         );
                       },
-                      itemCount: state.guests.length,
+                      itemCount: state.guestsVisible.length,
                     )
                   );
                 }
@@ -127,6 +127,6 @@ class _GuestListPageState extends State<GuestListPage> {
     context.read<GuestListBloc>().add(GuestListFetched());
   }
   Future<void> _runFilter(String value) async {
-    context.read<GuestListBloc>().add(GuestListFetched());
+    context.read<GuestListBloc>().add(GuestListFiltered(value));
   }
 }

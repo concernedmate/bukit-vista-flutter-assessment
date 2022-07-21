@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "nama 1",
+        "origin": "kartasura",
+        "picture": "link 1"
+    },
+    {
+        "id": 2,
+        "name": "nama 2",
+        "origin": "tembalang",
+        "picture": "link 2"
+    },
+    {
+        "id": 3,
+        "name": "nama 3",
+        "origin": "boyolali",
+        "picture": "link 3"
+    }
+]
