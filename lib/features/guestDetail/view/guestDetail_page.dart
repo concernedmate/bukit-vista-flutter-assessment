@@ -103,7 +103,7 @@ class _GuestDetailPageState extends State<GuestDetailPage> with TickerProviderSt
                                 SizedBox(height: 16,),
                                 Text('Guest Origin', style: BukitVistaTheme.body1.copyWith(color: Colors.grey)),
                                 Text(state.guestDetail.origin, style: BukitVistaTheme.body1),
-                            ]),
+                            ])
                           ),
                         ],
                       ),
@@ -116,12 +116,177 @@ class _GuestDetailPageState extends State<GuestDetailPage> with TickerProviderSt
                         child: ListView.builder(
                           itemCount: state.guestDetail.bookings.length,
                           itemBuilder: ((context, index) {
-                            return BookingButton(
-                              state.guestDetail.bookings[index].bookId, 
-                              state.guestDetail.bookings[index].propertyUnit, 
-                              state.guestDetail.bookings[index].bookStatus, 
-                              state.guestDetail.bookings[index].checkin,
-                              state.guestDetail.bookings[index].checkout
+                            return InkWell(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  context: context, 
+                                  isScrollControlled: true,
+                                  builder: (context){
+                                  return Wrap(
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Center(
+                                              child: Container(
+                                                width: 32,
+                                                child: Divider(
+                                                  color: Colors.grey,
+                                                  thickness: 2.0,
+                                                )
+                                              )
+                                            ),
+                                            SizedBox(height: 24),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('Check in', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                    SizedBox(height: 4,),
+                                                    Text(state.guestDetail.bookings[index].checkin, style: BukitVistaTheme.subtitle,),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Icon(Icons.dark_mode_outlined),
+                                                    SizedBox(height: 4,),
+                                                    Text(
+                                                      "${state.guestDetail.bookings[index].numGuest} Nights", 
+                                                      style: BukitVistaTheme.subtitle.copyWith(color: Colors.blue)
+                                                    ),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                                  children: [
+                                                    Text('Check out', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                    SizedBox(height: 4,),
+                                                    Text(state.guestDetail.bookings[index].checkout, style: BukitVistaTheme.subtitle,),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                            SizedBox(height: 16,),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('Booking ID', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                    SizedBox(height: 4,),
+                                                    Text(state.guestDetail.bookings[index].bookId, style: BukitVistaTheme.subtitle,),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                                  children: [
+                                                    Text('Booking status', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                    SizedBox(height: 4,),
+                                                    Text(state.guestDetail.bookings[index].bookStatus == 1
+                                                    ? 'Confirmed'
+                                                    : state.guestDetail.bookings[index].bookStatus == 2
+                                                      ? 'Canceled'
+                                                      : 'Pending'
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                            SizedBox(height: 16,),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('Number of guest', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                    SizedBox(height: 4,),
+                                                    Text(state.guestDetail.bookings[index].numGuest.toString(), style: BukitVistaTheme.subtitle,),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                                  children: [
+                                                    Text('Booking value', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                    SizedBox(height: 4,),
+                                                    Text(state.guestDetail.bookings[index].bookValue, style: BukitVistaTheme.subtitle,),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                            SizedBox(height: 16,),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('Phone number', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                SizedBox(height: 4,),
+                                                Text(state.guestDetail.bookings[index].phone, style: BukitVistaTheme.subtitle,),
+                                              ],
+                                            ),
+                                            SizedBox(height: 24,),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('Hosting details', style: BukitVistaTheme.body1.copyWith(fontWeight: FontWeight.bold),),
+                                              ],
+                                            ),
+                                            SizedBox(height: 24,),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('Host', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                SizedBox(height: 4,),
+                                                Text(state.guestDetail.bookings[index].host, style: BukitVistaTheme.subtitle,),
+                                              ],
+                                            ),
+                                            SizedBox(height: 16,),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('Profile name', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                SizedBox(height: 4,),
+                                                Text(state.guestDetail.bookings[index].profileName, style: BukitVistaTheme.subtitle,),
+                                              ],
+                                            ),
+                                            SizedBox(height: 16,),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('Property unit', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                SizedBox(height: 4,),
+                                                Text(state.guestDetail.bookings[index].propertyUnit, style: BukitVistaTheme.subtitle,),
+                                              ],
+                                            ),
+                                            SizedBox(height: 16,),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text('Listing name', style: BukitVistaTheme.subtitle.copyWith(color: Colors.grey),),
+                                                SizedBox(height: 4,),
+                                                Text(state.guestDetail.bookings[index].listName, style: BukitVistaTheme.subtitle.copyWith(color: Colors.orange),),
+                                              ],
+                                            )
+                                          ],
+                                        )
+                                      )
+                                  ]);
+                                });
+                              },
+                              child: BookingButton(
+                                state.guestDetail.bookings[index].bookId, 
+                                state.guestDetail.bookings[index].propertyUnit, 
+                                state.guestDetail.bookings[index].bookStatus, 
+                                state.guestDetail.bookings[index].checkin,
+                                state.guestDetail.bookings[index].checkout
+                              )
                             );
                           })
                         )

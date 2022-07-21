@@ -41,7 +41,7 @@ class GuestDetailBloc extends Bloc<GuestDetailEvent, GuestDetailState> {
 
   Future<GuestDetailModel> _fetchGuestDetail(int id) async {
     //TODO 
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     final guest = repository.getGuestDetail(id);
     return guest;
   }
