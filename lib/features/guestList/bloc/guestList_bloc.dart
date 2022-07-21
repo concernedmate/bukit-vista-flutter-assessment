@@ -73,7 +73,8 @@ class GuestListBloc extends Bloc<GuestListEvent, GuestListState> {
   }
 
   Future<List<GuestModel>> _fetchGuests() async {
-    await Future.delayed(Duration(seconds: 2));
+    //TODO 
+    await Future.delayed(Duration(seconds: 1));
     final guest = repository.getGuest();
     return guest;
   }

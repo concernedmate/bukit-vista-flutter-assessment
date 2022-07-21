@@ -7,6 +7,6 @@ import 'app.dart';
 void main() {
   BlocOverrides.runZoned(
     () => runApp(App()),
-    blocObserver: SimpleBlocObserver(),
+    blocObserver: AppBlocObserver(),
   );
 }

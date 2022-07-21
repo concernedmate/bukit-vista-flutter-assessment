@@ -1,0 +1,37 @@
+{
+    "id": 1,
+    "name": "Haylie Gouse",
+    "origin": "Osio, Finland",
+    "picture": "link 1",
+    "email": "email@email.com",
+    "phone": "0892137232",
+    "joindate": "Dec 2021",
+    "bookings": [
+        {
+            "checkin": "14:30 Aug 31, 2020",
+            "checkout": "10:30 Sep 31, 2020",
+            "book_id": "HMSFJ8K8KJF",
+            "num_guest": 2,
+            "phone": "08985312312",
+            "book_status": 1,
+            "book_value": "30,01",
+            "host": "Rafik Bukit Vista",
+            "profile_name": "Bayu & Wayan",
+            "property_unit": "ME Villa - B (1BR)",
+            "list_name": "4BR Homey Villa in Uluwatu | Kitchen + Wifi + Pool"
+        },
+        {
+            "checkin": "12:30 Aug 25, 2020",
+            "checkout": "12:30 Sep 24, 2020",
+            "book_id": "HMSFKSA29D2",
+            "num_guest": 4,
+            "phone": "082385321312",
+            "book_status": 2,
+            "book_value": "96,01",
+            "host": "Rafik Bukit Vista",
+            "profile_name": "Bayu & Wayan",
+            "property_unit": "ME Villa - A (4BR)",
+            "list_name": "4BR Homey Villa in Uluwatu | Kitchen + Wifi"
+        }
+    ]
+}
