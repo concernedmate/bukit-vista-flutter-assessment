@@ -45,7 +45,7 @@ class NetworkGuestApi extends GuestApi {
     try {
       //final apiUrl = Uri.parse(baseUrl + '/api/guestdetail/'+id);
       //final response = await http.get(apiUrl);
-      final body = await rootBundle.loadString('lib/assets/guest_detail_sample.json');
+      final body = await rootBundle.loadString('lib/assets/guest_detail_sample$id.json');
       final response = http.Response(
         body,
         200

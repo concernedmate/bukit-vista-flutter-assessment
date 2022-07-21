@@ -21,7 +21,7 @@ class GuestDetailBloc extends Bloc<GuestDetailEvent, GuestDetailState> {
   Future<void> _onGuestDetailFetched(GuestDetailFetched event, Emitter<GuestDetailState> emit) async {
     try {
       final guestDetail = await _fetchGuestDetail(id);
-      
+      if (guestDetail == GuestDetailModel.empty) throw('No data');
       return emit(
         state.copyWith(
           status: GuestDetailStatus.success,
@@ -32,7 +32,7 @@ class GuestDetailBloc extends Bloc<GuestDetailEvent, GuestDetailState> {
       return emit(
         state.copyWith(
           status: GuestDetailStatus.failure,
-          guestDetail: state.guestDetail
+          guestDetail: GuestDetailModel.empty
         )
       );
     }
@@ -40,6 +40,7 @@ class GuestDetailBloc extends Bloc<GuestDetailEvent, GuestDetailState> {
   }
 
   Future<GuestDetailModel> _fetchGuestDetail(int id) async {
+    //TODO 
     await Future.delayed(Duration(seconds: 2));
     final guest = repository.getGuestDetail(id);
     return guest;

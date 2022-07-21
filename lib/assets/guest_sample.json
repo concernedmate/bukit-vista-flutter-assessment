@@ -1,20 +1,20 @@
 [
     {
         "id": 1,
-        "name": "nama 1",
-        "origin": "kartasura",
+        "name": "Haylie Gouse",
+        "origin": "Osio, Finland",
         "picture": "link 1"
     },
     {
         "id": 2,
-        "name": "nama 2",
-        "origin": "tembalang",
+        "name": "Jordyn Levin",
+        "origin": "New York, USA",
         "picture": "link 2"
     },
     {
         "id": 3,
-        "name": "nama 3",
-        "origin": "boyolali",
+        "name": "Charlie Ekstrom Bothman",
+        "origin": "California, USA",
         "picture": "link 3"
     }
 ]
