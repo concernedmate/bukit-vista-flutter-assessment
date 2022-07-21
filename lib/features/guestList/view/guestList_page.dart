@@ -1,18 +1,36 @@
+import 'package:bukit_vista_flutter_assessment/components/page_transition.dart';
 import 'package:bukit_vista_flutter_assessment/constants.dart';
+import 'package:bukit_vista_flutter_assessment/features/guestDetail/view/guestDetail_provider.dart';
 import 'package:bukit_vista_flutter_assessment/features/guestList/bloc/guestList_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
-import '../components/list_button.dart';
+import '../../../components/list_button.dart';
 
 class GuestListPage extends StatefulWidget {
   @override
   _GuestListPageState createState() => _GuestListPageState();
 }
 
-class _GuestListPageState extends State<GuestListPage> {
-   final TextEditingController _textEditingController = TextEditingController();
+class _GuestListPageState extends State<GuestListPage> with SingleTickerProviderStateMixin{
+  final TextEditingController _textEditingController = TextEditingController();
+
+  late AnimationController controller;
+  late Animation<Offset> offset;
+
+  @override
+  void initState() {
+    
+
+    super.initState();
+    controller =
+        AnimationController(vsync:this, duration: Duration(seconds: 1));
+
+    offset = Tween<Offset>(begin: Offset.zero, end: Offset(0.0, 1.0))
+        .animate(controller);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWrapper.builder(
@@ -100,10 +118,17 @@ class _GuestListPageState extends State<GuestListPage> {
                     onRefresh: _onRefresh,
                     child: ListView.builder(
                       itemBuilder: (BuildContext context, int index){
-                        return GuestButton(
-                          state.guestsVisible[index].name,
-                          state.guestsVisible[index].picture,
-                          state.guestsVisible[index].origin,
+                        return InkWell(
+                          onTap: () {
+                            _openDetail(state.guests[index].id);
+                          },
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          child: GuestButton(
+                            state.guestsVisible[index].name,
+                            state.guestsVisible[index].picture,
+                            state.guestsVisible[index].origin,
+                          )
                         );
                       },
                       itemCount: state.guestsVisible.length,
@@ -128,5 +153,11 @@ class _GuestListPageState extends State<GuestListPage> {
   }
   Future<void> _runFilter(String value) async {
     context.read<GuestListBloc>().add(GuestListFiltered(value));
+  }
+  void _openDetail(int id) async {
+    Navigator.push(
+      context, 
+      slideRightToLeft(GuestDetailPageProvider(id))
+    );
   }
 }

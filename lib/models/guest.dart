@@ -20,4 +20,6 @@ class GuestModel extends Equatable {
         origin: json["origin"],
         picture: json["picture"],
     );
+  
+  static const empty = GuestModel(id: 0, name: '-', origin: '-', picture: '-');
 }

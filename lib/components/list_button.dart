@@ -2,7 +2,7 @@ import 'package:bukit_vista_flutter_assessment/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-Widget GuestButton(String name, String image, String origin){
+Widget GuestButton(String name, String image, String origin, [bool arrow = true]){
   return Container(
     decoration: BoxDecoration(
       color: Colors.white,
@@ -65,13 +65,15 @@ Widget GuestButton(String name, String image, String origin){
             ),
           ],
         ),
-        Container(
+        arrow
+        ? Container(
           alignment: Alignment.center,
           width: 64,
           height: 64,
           padding: const EdgeInsets.all(8),
           child: const Icon(FontAwesomeIcons.arrowRight, color: Colors.lightBlue,),
-        ),
+        )
+        : Container(),
       ],
     ),
   );
