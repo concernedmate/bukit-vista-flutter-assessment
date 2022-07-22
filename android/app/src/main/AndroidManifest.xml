@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bukit_vista_flutter_assessment">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="bukit_vista_flutter_assessment"
         android:name="${applicationName}"
