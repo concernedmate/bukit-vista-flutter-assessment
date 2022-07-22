@@ -121,7 +121,7 @@ class _GuestListPageState extends State<GuestListPage> with SingleTickerProvider
                       itemBuilder: (BuildContext context, int index){
                         return InkWell(
                           onTap: () {
-                            _openDetail(state.guests[index].id);
+                            _openDetail(state.guestsVisible[index].id);
                           },
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
