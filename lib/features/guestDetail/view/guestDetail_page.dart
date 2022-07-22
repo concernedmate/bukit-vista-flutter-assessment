@@ -1,4 +1,5 @@
 import 'package:bukit_vista_flutter_assessment/bukitvista-themes.dart';
+import 'package:bukit_vista_flutter_assessment/components/navigation_bottom.dart';
 import 'package:bukit_vista_flutter_assessment/constants.dart';
 import 'package:bukit_vista_flutter_assessment/features/guestDetail/bloc/guestDetail_bloc.dart';
 import 'package:bukit_vista_flutter_assessment/components/list_button.dart';
@@ -14,6 +15,7 @@ class GuestDetailPage extends StatefulWidget {
 }
 
 class _GuestDetailPageState extends State<GuestDetailPage> with TickerProviderStateMixin {
+  final _selectedIndex = 0;
   late TabController _tabController;
 
   @override
@@ -310,7 +312,8 @@ class _GuestDetailPageState extends State<GuestDetailPage> with TickerProviderSt
                   );
             }
           }),
-        )
+        ),
+        bottomNavigationBar: navbarBottom(context, _selectedIndex)
       ),
       maxWidth: kResponsiveMaxWidth,
       minWidth: kResponsiveMinWidth,
@@ -320,6 +323,7 @@ class _GuestDetailPageState extends State<GuestDetailPage> with TickerProviderSt
   }
 
   Future<void> _onRefresh() async {
+    //TODO
   }
 
 }
