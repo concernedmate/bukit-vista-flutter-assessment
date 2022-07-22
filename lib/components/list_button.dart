@@ -1,7 +1,6 @@
 import 'package:bukit_vista_flutter_assessment/bukitvista-themes.dart';
 import 'package:bukit_vista_flutter_assessment/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget GuestButton(String name, String image, String origin, [bool arrow = true]){
   return Container(
@@ -28,14 +27,17 @@ Widget GuestButton(String name, String image, String origin, [bool arrow = true]
           alignment: Alignment.center,
           width: 64,
           height: 64,
-          decoration: const BoxDecoration(
-            color: Colors.red,
-            shape: BoxShape.circle
-          ),
           padding: const EdgeInsets.all(8),
-          child: Text(
-            image,
-            //style: MpokSitiTheme.caption
+          child: ClipOval(
+            child: Image.network(
+              image,
+              width: 64,
+              height: 64,
+              fit: BoxFit.cover,
+              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                  return Image.asset('lib/assets/default_profile.png');
+              },
+            )
           ),
         ),
         SizedBox(width: 16,),

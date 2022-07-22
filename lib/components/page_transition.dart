@@ -14,3 +14,11 @@ PageRouteBuilder slideRightToLeft(Widget page){
     transitionDuration: Duration(milliseconds: 300),
   );
 }
+
+PageRouteBuilder fadeOut(Widget page){
+  return PageRouteBuilder(
+    pageBuilder: (c, a1, a2) => page,
+    transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child,),
+    transitionDuration: Duration(milliseconds: 300),
+  );
+}

@@ -1,3 +1,4 @@
+import 'package:bukit_vista_flutter_assessment/components/navigation_bottom.dart';
 import 'package:bukit_vista_flutter_assessment/components/page_transition.dart';
 import 'package:bukit_vista_flutter_assessment/constants.dart';
 import 'package:bukit_vista_flutter_assessment/features/guestDetail/view/guestDetail_provider.dart';
@@ -15,6 +16,7 @@ class GuestListPage extends StatefulWidget {
 
 class _GuestListPageState extends State<GuestListPage> with SingleTickerProviderStateMixin{
   final TextEditingController _textEditingController = TextEditingController();
+  final int _selectedIndex = 0;
 
   late AnimationController controller;
   late Animation<Offset> offset;
@@ -138,7 +140,8 @@ class _GuestListPageState extends State<GuestListPage> with SingleTickerProvider
                 return const Center(child: CircularProgressIndicator());
             }
           }),
-        )
+        ),
+        bottomNavigationBar: navbarBottom(context, _selectedIndex)
       ),
       maxWidth: kResponsiveMaxWidth,
       minWidth: kResponsiveMinWidth,
