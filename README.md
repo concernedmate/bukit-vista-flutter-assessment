@@ -1,16 +1,27 @@
 # bukit_vista_flutter_assessment
 
-A new Flutter project.
+Flutter project for Bukit Vista interview
 
-## Getting Started
+Muhammad Afif Azizy
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Project Structure:
+- lib
+  - assets
+    - (assets that is used in the app)
+  - components
+    - (widgets, reusable components)
+  - features
+    - (features, e.g. login, guestdetails, settings etc)
+      - bloc (state management, every page should have their own bloc)
+      - view (front end)
+  - models
+    - (models, objects that is used in the app)
+  - repository
+    - (repositories, convert data from the web to models)
+  - service
+    - (apis, read apis from the web)
+  app.dart
+  main.dart
+  bloc-observer.dart 
+  constants.dart
+  bukitvista-themes.dart (global themes)
