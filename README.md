@@ -20,8 +20,8 @@ Project Structure:
     - (repositories, convert data from the web to models)
   - service
     - (apis, read apis from the web)
-  app.dart
-  main.dart
-  bloc-observer.dart 
-  constants.dart
-  bukitvista-themes.dart (global themes)
+  -app.dart
+  -main.dart
+  -bloc-observer.dart 
+  -constants.dart
+  -bukitvista-themes.dart (global themes)
